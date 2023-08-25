@@ -1,0 +1,23 @@
+program GerenciadorDeProjetos;
+
+uses
+  Vcl.Forms,
+  frmPrincipal in 'frmPrincipal.pas' {formPrincipal},
+  Vcl.Themes,
+  Vcl.Styles,
+  frmProjetos in 'frmProjetos.pas' {frmConsultaProjeto},
+  frmMembros in 'frmMembros.pas' {frmConsultaMembros},
+  dmConexao in 'dmConexao.pas' {dmConnection: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Tablet Light');
+  Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TfrmConsultaProjeto, frmConsultaProjeto);
+  Application.CreateForm(TfrmConsultaMembros, frmConsultaMembros);
+  Application.CreateForm(TdmConnection, dmConnection);
+  Application.Run;
+end.

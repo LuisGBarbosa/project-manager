@@ -1,0 +1,347 @@
+﻿object frmConsultaProjeto: TfrmConsultaProjeto
+  Left = 0
+  Top = 0
+  Caption = 'Projetos'
+  ClientHeight = 436
+  ClientWidth = 755
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Roboto'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 19
+  object pnlPrincipal: TCardPanel
+    Left = 0
+    Top = 0
+    Width = 755
+    Height = 436
+    Align = alClient
+    ActiveCard = cardConsultaProjetos
+    Caption = 'pnlPrincipal'
+    TabOrder = 0
+    object cardConsultaProjetos: TCard
+      Left = 1
+      Top = 1
+      Width = 753
+      Height = 434
+      Caption = 'ConsultaCard'
+      CardIndex = 0
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 0
+      object Panel1: TPanel
+        Left = 0
+        Top = 0
+        Width = 753
+        Height = 73
+        Align = alTop
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 24
+          Top = 8
+          Width = 71
+          Height = 19
+          Caption = 'Pesquisar'
+        end
+        object Label2: TLabel
+          Left = 309
+          Top = 7
+          Width = 49
+          Height = 19
+          Caption = 'Estado'
+        end
+        object btnPesquisar: TButton
+          Left = 592
+          Top = 14
+          Width = 145
+          Height = 43
+          Caption = 'Pesquisar'
+          TabOrder = 0
+          OnClick = btnPesquisarClick
+        end
+        object Edit1: TEdit
+          Left = 24
+          Top = 27
+          Width = 249
+          Height = 27
+          TabOrder = 1
+        end
+        object cbSituação: TComboBox
+          Left = 308
+          Top = 27
+          Width = 145
+          Height = 27
+          Style = csDropDownList
+          ItemIndex = 0
+          TabOrder = 2
+          Text = 'Todos'
+          Items.Strings = (
+            'Todos'
+            'Planejando'
+            'Parado'
+            'Em progresso'
+            'Finalizando'
+            'Finalizado'
+            'Entregue')
+        end
+      end
+      object dbgConsultaProjetos: TDBGrid
+        Left = 0
+        Top = 73
+        Width = 753
+        Height = 288
+        Align = alClient
+        DataSource = dsConsultaProjetos
+        TabOrder = 1
+        TitleFont.Charset = ANSI_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -16
+        TitleFont.Name = 'Roboto'
+        TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'nomeprojeto'
+            Title.Caption = 'Projeto'
+            Width = 300
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'responsavel'
+            Title.Caption = 'Respons'#225'vel'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'situacao'
+            Title.Caption = 'Situa'#231#227'o'
+            Width = 125
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'previsao'
+            Title.Caption = 'Previs'#227'o'
+            Width = 105
+            Visible = True
+          end>
+      end
+      object Panel2: TPanel
+        Left = 0
+        Top = 361
+        Width = 753
+        Height = 73
+        Align = alBottom
+        BevelOuter = bvNone
+        Color = clWhite
+        ParentBackground = False
+        TabOrder = 2
+        object btnAdicionar: TButton
+          Left = 25
+          Top = 5
+          Width = 112
+          Height = 60
+          Caption = 'Adicionar'
+          TabOrder = 0
+          OnClick = btnAdicionarClick
+        end
+        object btnEditar: TButton
+          Left = 161
+          Top = 6
+          Width = 112
+          Height = 60
+          Caption = 'Editar'
+          TabOrder = 1
+          OnClick = btnEditarClick
+        end
+        object btnApagar: TButton
+          Left = 290
+          Top = 6
+          Width = 112
+          Height = 59
+          Caption = 'Apagar'
+          TabOrder = 2
+          OnClick = btnApagarClick
+        end
+        object btnDetalhes: TButton
+          Left = 418
+          Top = 6
+          Width = 112
+          Height = 59
+          Caption = 'Detalhes'
+          TabOrder = 3
+          OnClick = btnDetalhesClick
+        end
+      end
+    end
+    object DadosProjeto: TCard
+      Left = 1
+      Top = 1
+      Width = 753
+      Height = 434
+      Caption = 'DadosCard'
+      CardIndex = 1
+      Color = clWhite
+      ParentBackground = False
+      TabOrder = 1
+      object Label3: TLabel
+        Left = 40
+        Top = 15
+        Width = 119
+        Height = 19
+        Caption = 'Nome do Projeto'
+      end
+      object Label4: TLabel
+        Left = 40
+        Top = 86
+        Width = 218
+        Height = 19
+        Caption = 'L'#237'der do Projeto / Respons'#225'vel'
+      end
+      object Label5: TLabel
+        Left = 40
+        Top = 151
+        Width = 140
+        Height = 19
+        Caption = 'Situa'#231#227'o do Projeto'
+      end
+      object lblObservacao: TLabel
+        Left = 393
+        Top = 15
+        Width = 71
+        Height = 19
+        Caption = 'Descri'#231#227'o'
+      end
+      object Label6: TLabel
+        Left = 224
+        Top = 151
+        Width = 62
+        Height = 19
+        Caption = 'Previs'#227'o'
+      end
+      object edtNomeProjeto: TEdit
+        Left = 40
+        Top = 40
+        Width = 321
+        Height = 27
+        TabOrder = 0
+      end
+      object edtResponsavel: TEdit
+        Left = 40
+        Top = 111
+        Width = 321
+        Height = 27
+        TabOrder = 1
+      end
+      object cbSituacao: TComboBox
+        Left = 40
+        Top = 176
+        Width = 145
+        Height = 27
+        ItemIndex = 0
+        TabOrder = 2
+        Text = 'Planejando'
+        Items.Strings = (
+          'Planejando'
+          'Parado'
+          'Em Progresso'
+          'Finalizando'
+          'Finalizado'
+          'Entregue')
+      end
+      object btnCancelar: TButton
+        Left = 592
+        Top = 376
+        Width = 145
+        Height = 44
+        Caption = 'Cancelar'
+        TabOrder = 3
+        OnClick = btnCancelarClick
+      end
+      object btnSalvar: TButton
+        Left = 433
+        Top = 376
+        Width = 145
+        Height = 44
+        Caption = 'Salvar'
+        TabOrder = 4
+        OnClick = btnSalvarClick
+      end
+      object mmDescricao: TMemo
+        Left = 393
+        Top = 40
+        Width = 312
+        Height = 281
+        TabOrder = 5
+      end
+      object dtPrevisao: TDateTimePicker
+        Left = 224
+        Top = 176
+        Width = 137
+        Height = 27
+        Date = 44858.000000000000000000
+        Time = 0.871203252318082400
+        TabOrder = 6
+      end
+    end
+  end
+  object sqlProjetos: TFDQuery
+    Connection = dmConnection.sqlConnection
+    SQL.Strings = (
+      'select * from projetos')
+    Left = 529
+    Top = 217
+  end
+  object cdsProjetos: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspProjetos'
+    Left = 641
+    Top = 225
+    object cdsProjetosid: TAutoIncField
+      FieldName = 'id'
+      ReadOnly = True
+    end
+    object cdsProjetosnomeprojeto: TStringField
+      FieldName = 'nomeprojeto'
+      Required = True
+      Size = 200
+    end
+    object cdsProjetosdescricao: TStringField
+      FieldName = 'descricao'
+      Size = 1000
+    end
+    object cdsProjetosresponsavel: TStringField
+      FieldName = 'responsavel'
+      Size = 200
+    end
+    object cdsProjetossituacao: TStringField
+      FieldName = 'situacao'
+      Required = True
+      Size = 100
+    end
+    object cdsProjetosprevisao: TDateField
+      FieldName = 'previsao'
+    end
+  end
+  object dspProjetos: TDataSetProvider
+    DataSet = sqlProjetos
+    Options = [poAllowCommandText, poUseQuoteChar]
+    Left = 585
+    Top = 161
+  end
+  object dsConsultaProjetos: TDataSource
+    DataSet = cdsProjetos
+    Left = 585
+    Top = 273
+  end
+end

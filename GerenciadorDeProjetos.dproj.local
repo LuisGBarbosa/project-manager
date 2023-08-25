@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/10/23 21:51:40.000.258,=E:\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/23 21:53:16.000.271,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmPrincipal.dfm=E:\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2022/10/23 21:53:16.000.271,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmPrincipal.pas=E:\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/10/23 21:53:43.000.073,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\GerenciadorDeProjetos.dproj=E:\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/10/23 22:19:58.000.083,=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/10/23 22:24:35.000.790,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmProjetos.dfm=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.dfm</Transaction>
+    <Transaction>2022/10/23 22:24:35.000.790,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmProjetos.pas=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/10/23 23:01:39.000.034,=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/10/23 23:02:27.000.725,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmMembros.dfm=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.dfm</Transaction>
+    <Transaction>2022/10/23 23:02:27.000.725,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\frmMembros.pas=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit2.pas</Transaction>
+    <Transaction>2022/10/23 23:13:08.000.555,=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.pas</Transaction>
+    <Transaction>2022/10/23 23:18:09.000.432,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\dmConexao.dfm=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.dfm</Transaction>
+    <Transaction>2022/10/23 23:18:09.000.432,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\dmConexao.pas=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.pas</Transaction>
+    <Transaction>2023/08/21 18:49:56.454,=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.pas</Transaction>
+    <Transaction>2023/08/21 18:50:11.878,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\FormOutros.dfm=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.dfm</Transaction>
+    <Transaction>2023/08/21 18:50:11.878,E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\FormOutros.pas=E:\Documents\Embarcadero\Studio\Projects\Gerenciador de Projetos\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,24 @@
+program GerenciadorDeProjetos;
+
+uses
+  Vcl.Forms,
+  frmPrincipal in 'frmPrincipal.pas' {formPrincipal},
+  Vcl.Themes,
+  Vcl.Styles,
+  frmProjetos in 'frmProjetos.pas' {frmConsultaProjeto},
+  frmMembros in 'frmMembros.pas' {frmConsultaMembros},
+  dmConexao in 'dmConexao.pas' {dmConnection: TDataModule},
+  FormOutros in 'FormOutros.pas' {uFormOutros};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformPrincipal, formPrincipal);
+  Application.CreateForm(TfrmConsultaProjeto, frmConsultaProjeto);
+  Application.CreateForm(TfrmConsultaMembros, frmConsultaMembros);
+  Application.CreateForm(TdmConnection, dmConnection);
+  Application.CreateForm(TuFormOutros, uFormOutros);
+  Application.Run;
+end.

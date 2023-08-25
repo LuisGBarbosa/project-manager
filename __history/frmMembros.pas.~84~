@@ -1,0 +1,173 @@
+unit frmMembros;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, Vcl.WinXPanels, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  Datasnap.Provider, Datasnap.DBClient, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client, dmConexao;
+
+type
+  TfrmConsultaMembros = class(TForm)
+    pnlPrincipal: TCardPanel;
+    cardConsultaMembros: TCard;
+    Panel1: TPanel;
+    Label1: TLabel;
+    btnPesquisar: TButton;
+    edtCampoPesquisa: TEdit;
+    DBGrid1: TDBGrid;
+    Panel2: TPanel;
+    btnAdicionar: TButton;
+    btnEditar: TButton;
+    btnApagar: TButton;
+    btnDetalhes: TButton;
+    DadosMembro: TCard;
+    Label3: TLabel;
+    Label4: TLabel;
+    edtNome: TEdit;
+    edtFuncao: TEdit;
+    btnCancelar: TButton;
+    btnSalvar: TButton;
+    sqlMembros: TFDQuery;
+    cdsMembros: TClientDataSet;
+    dspMembros: TDataSetProvider;
+    dataSourceMembros: TDataSource;
+    cdsMembrosnome: TStringField;
+    cdsMembrosfuncao: TStringField;
+    cdsMembrosid: TAutoIncField;
+    procedure btnDetalhesClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnApagarClick(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Consultar;
+
+  public
+    { Public declarations }
+    procedure LimparCampos;
+    procedure HabilitaCampos;
+  end;
+
+var
+  frmConsultaMembros: TfrmConsultaMembros;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmConsultaMembros.Consultar;
+var selectAll: string;
+
+begin
+  selectAll := 'SELECT * FROM membros WHERE 1=1';
+
+  cdsMembros.Close;
+  cdsMembros.CommandText := selectAll;
+
+  if Trim(edtCampoPesquisa.Text) <> '' then
+  begin
+    cdsMembros.CommandText := ' AND nome LIKE ' + QuotedStr('%' + Trim(edtCampoPesquisa.Text) + '%');
+  end;
+
+  cdsMembros.Open;
+
+//    sqlMembros.Close;
+//    sqlMembros.SQL.Clear;
+//    sqlMembros.SQL.Add('SELECT * FROM membros');
+//    sqlMembros.SQL.Add(' WHERE 1 = 1');
+//
+//    if Trim(edtCampoPesquisa.Text) <> '' then
+//    begin
+//      sqlMembros.SQL.Add(' AND nome LIKE ' + QuotedStr('%' + Trim(edtCampoPesquisa.Text) + '%'));
+//    end;
+//
+//    sqlMembros.Open();
+end;
+
+procedure TfrmConsultaMembros.btnAdicionarClick(Sender: TObject);
+begin
+  pnlPrincipal.ActiveCard := DadosMembro;
+  LimparCampos;
+  HabilitaCampos;
+  cdsMembros.Open;
+  cdsMembros.Insert;
+end;
+
+procedure TfrmConsultaMembros.btnApagarClick(Sender: TObject);
+begin
+  cdsMembros.Delete;
+  cdsMembros.ApplyUpdates(0);
+  Application.MessageBox('Membro apagado na paulada!', 'Informação', MB_OK + MB_ICONINFORMATION);
+end;
+
+procedure TfrmConsultaMembros.btnCancelarClick(Sender: TObject);
+begin
+  cdsMembros.Cancel;
+  pnlPrincipal.ActiveCard := CardConsultaMembros;
+end;
+
+procedure TfrmConsultaMembros.btnDetalhesClick(Sender: TObject);
+begin
+  pnlPrincipal.ActiveCard := DadosMembro;
+  edtNome.Text := cdsMembrosnome.AsSTring;
+  edtFuncao.Text := cdsMembrosfuncao.AsString;
+
+  edtNome.Enabled := False;
+  edtFuncao.Enabled := False;
+end;
+
+procedure TfrmConsultaMembros.btnEditarClick(Sender: TObject);
+begin
+  pnlPrincipal.ActiveCard := DadosMembro;
+  cdsMembros.Edit;
+
+  edtNome.Text := cdsMembrosnome.AsString;
+  edtFuncao.Text := cdsMembrosfuncao.AsString;
+end;
+
+procedure TfrmConsultaMembros.btnPesquisarClick(Sender: TObject);
+begin
+  Consultar;
+end;
+
+procedure TfrmConsultaMembros.btnSalvarClick(Sender: TObject);
+begin
+  cdsMembrosnome.AsString := Trim(edtNome.Text);
+  cdsMembrosfuncao.AsString := Trim(edtFuncao.Text);
+
+  cdsMembros.Post;
+  cdsMembros.ApplyUpdates(0);
+
+  Application.MessageBox('Membro cadastrado com sucesso!', 'Sucesso!', MB_OK + MB_ICONINFORMATION);
+
+  pnlPrincipal.ActiveCard := CardConsultaMembros;
+end;
+
+procedure TfrmConsultaMembros.FormShow(Sender: TObject);
+begin
+  Consultar;
+  pnlPrincipal.ActiveCard := CardConsultaMembros;
+end;
+
+procedure TfrmConsultaMembros.HabilitaCampos;
+begin
+  edtNome.Enabled := True;
+  edtFuncao.Enabled := True;
+end;
+
+procedure TfrmConsultaMembros.LimparCampos;
+begin
+  edtNome.Text := '';
+  edtFuncao.Text := '';
+end;
+
+end.

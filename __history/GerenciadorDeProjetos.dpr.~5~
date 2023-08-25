@@ -1,0 +1,21 @@
+program GerenciadorDeProjetos;
+
+uses
+  Vcl.Forms,
+  frmPrincipal in 'frmPrincipal.pas' {Form1},
+  Vcl.Themes,
+  Vcl.Styles,
+  frmProjetos in 'frmProjetos.pas' {frmConsultaProjeto},
+  frmMembros in 'frmMembros.pas' {Form2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  TStyleManager.TrySetStyle('Tablet Dark');
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmConsultaProjeto, frmConsultaProjeto);
+  Application.CreateForm(TForm2, Form2);
+  Application.Run;
+end.
